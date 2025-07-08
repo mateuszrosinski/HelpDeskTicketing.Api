@@ -1,0 +1,36 @@
+﻿@page
+@model HelpDeskTicketing.Web.Pages.LoginModel
+@{
+    ViewData["Title"] = "Logowanie";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Użyj konta lokalnego, aby się zalogować.</h4>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LoginInput.Username" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="LoginInput.Username" class="form-label"></label>
+                    <span asp-validation-for="LoginInput.Username" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LoginInput.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="LoginInput.Password" class="form-label"></label>
+                    <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Zaloguj</button>
+                </div>
+                <div class="mt-3">
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Zarejestruj się jako nowy użytkownik</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

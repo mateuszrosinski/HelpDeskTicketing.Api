@@ -1,0 +1,60 @@
+﻿@page
+@model HelpDeskTicketing.Web.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Szczegóły zgłoszenia";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Zgłoszenie nr @Model.Ticket.Id</h4>
+    <hr />
+
+    @if (Model.Ticket != null)
+    {
+        <dl class="row">
+            <dt class="col-sm-3">
+                Tytuł
+            </dt>
+            <dd class="col-sm-9">
+                @Model.Ticket.Title
+            </dd>
+
+            <dt class="col-sm-3">
+                Opis
+            </dt>
+            <dd class="col-sm-9" style="white-space: pre-wrap;">
+                @Model.Ticket.Description
+            </dd>
+
+            <dt class="col-sm-3">
+                Status
+            </dt>
+            <dd class="col-sm-9">
+                @Model.Ticket.Status
+            </dd>
+
+            <dt class="col-sm-3">
+                Priorytet
+            </dt>
+            <dd class="col-sm-9">
+                @Model.Ticket.Priority
+            </dd>
+
+            <dt class="col-sm-3">
+                Data utworzenia
+            </dt>
+            <dd class="col-sm-9">
+                @Model.Ticket.CreatedAt.ToLocalTime()
+            </dd>
+        </dl>
+    }
+    else
+    {
+        <p>Nie znaleziono zgłoszenia.</p>
+    }
+</div>
+<div>
+    <!-- W przyszłości dodamy tu link do edycji -->
+    <a asp-page="/Index" class="btn btn-primary">Powrót do listy</a>
+</div>

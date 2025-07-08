@@ -1,0 +1,43 @@
+﻿@page
+@model HelpDeskTicketing.Web.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h4>Utwórz nowe konto.</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterInput.Username" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="RegisterInput.Username"></label>
+                <span asp-validation-for="RegisterInput.Username" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterInput.Email" class="form-control" autocomplete="email" aria-required="true" />
+                <label asp-for="RegisterInput.Email"></label>
+                <span asp-validation-for="RegisterInput.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterInput.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="RegisterInput.Password"></label>
+                <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="RegisterInput.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="RegisterInput.ConfirmPassword"></label>
+                <span asp-validation-for="RegisterInput.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Zarejestruj</button>
+        </form>
+    </div>
+</div>

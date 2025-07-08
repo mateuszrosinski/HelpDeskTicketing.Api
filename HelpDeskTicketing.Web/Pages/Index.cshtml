@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Zgłoszenia Help Desk</h1>
+</div>
+
+<table class="table table-striped"
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tytuł</th>
+            <th>Status</th>
+            <th>Priorytet</th>
+            <th>Data utworzenia</th>
+            <th>Akcje>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model.Tickets)
+        {
+            <tr>
+                <td>@ticket.Id</td>
+                <td>@ticket.Title</td>
+                <td>@ticket.Status</td>
+                <td>@ticket.Priority</td>
+                <td>@ticket.CreatedAt.ToLocalTime()</td>
+                <td>
+                    <a asp-page="/Details" asp-route-id="@ticket.Id">Szczegóły</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
