@@ -95,7 +95,17 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+else
+{
+    // Ta linia jest wa¿na dla produkcji. Zapewnia, ¿e b³êdy s¹ logowane,
+    // a nie "po³ykane".
+    app.UseExceptionHandler("/Error"); 
+    app.UseHsts();
+}
+
 
 app.UseHttpsRedirection();
 app.UseRouting();
